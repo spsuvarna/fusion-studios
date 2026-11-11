@@ -1,15 +1,18 @@
 import React from 'react'
 import './Footer.css'
 
-export default function Footer({ onBookClick }) {
+export default function Footer() {
   return (
-    <footer>
+    <footer className="Footer">
       <div className="container">
         <div className="footer-content">
-          <p>© 2026 Fusion Studios. All rights reserved.</p>
-          <div className="contact-info">
-            <span>📞 +91 98337 69666</span>
-            <span>📍 Marol, Mumbai 10 minutes walking distance from Metro Station</span>
+          <div className="footer-logo">
+            <span className="logo-star">★</span>
+            <span className="logo-text">FUSION</span>
+            <span className="logo-sub">STUDIOS</span>
+          </div>
+          <div className="footer-description">
+            <p>SALON · COSMETOLOGY · TATTOO · NAIL</p>
           </div>
         </div>
       </div>

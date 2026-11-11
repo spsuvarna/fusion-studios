@@ -1,7 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Hero.css'
 
 export default function Hero({ onBookClick }) {
+  const [isOpen, setIsOpen] = useState(false)
+
+  const handleNavClick = (e, targetId) => {
+    e.preventDefault()
+    setIsOpen(false)
+    const element = document.getElementById(targetId)
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
   return (
     <section className="Hero" id="top">
       <div className="hero-bg" aria-hidden="true">

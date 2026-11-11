@@ -18,7 +18,7 @@ export default function App() {
         <Offers onBookClick={() => setBookingOpen(true)} />
         <ExtraBenefits />
       </main>
-      <Footer onBookClick={() => setBookingOpen(true)} />
+      <Footer />
       {isBookingOpen && <BookingModal onClose={() => setBookingOpen(false)} />}
     </div>
   )
