@@ -13,22 +13,7 @@ A beautiful React website showcasing the Pre-Monsoon Makeover Festival offerings
 
 ## Live Demo
 
-[🔗 Live Website](https://sumat.github.io/fusion-studios/) (GitHub Pages)
-
-## How to Use
-
-1. Clone the repository
-2. Install dependencies with `npm install`
-3. Run development server with `npm run dev`
-4. Build production version with `npm run build`
-
-## Technology Stack
-
-- React 18
-- Vite 5
-- CSS with custom variables for theming
-- Font Awesome for icons
-- Google Fonts (Playfair Display, Montserrat)
+[🔗 Live Website](https://spsuvarna.github.io/fusion-studios/)
 
 ## Contact
 
