@@ -1,0 +1,148 @@
+.Offers {
+  padding: 120px 0;
+  background: var(--light);
+}
+
+.Offers .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.Offers .section-title {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.offers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 60px;
+}
+
+.offer-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 30px;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+  background: white;
+  border: 1px solid #e0e0e0;
+}
+
+.offer-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+.offer-badge {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 15px;
+  padding: 8px 0;
+}
+
+.offer-badge-duration {
+  background: rgba(212, 175, 55, 0.2);
+  color: var(--gold-text);
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.offer-name {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  color: var(--dark);
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.offer-price {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--gold-text);
+  margin: 10px 0;
+}
+
+.offer-details {
+  font-size: 0.95rem;
+  color: var(--text);
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+.offer-includes {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: var(--text);
+  margin-top: 15px;
+}
+
+.offer-includes span {
+  background: rgba(212, 175, 55, 0.1);
+  padding: 3px 8px;
+  border-radius: 10px;
+  font-weight: 500;
+}
+
+.btn {
+  display: inline-block;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 50px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid var(--gold-text);
+  color: var(--gold-text);
+  background: transparent;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 14px 36px;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--dark);
+  border: 2px solid var(--gold-text);
+  padding: 10px 24px;
+  font-size: 1rem;
+}
+
+.btn-ghost:hover {
+  background: rgba(212, 175, 55, 0.1);
+  color: var(--gold-text);
+}
+
+.btn-small {
+  font-size: 0.9rem;
+  padding: 8px 16px;
+}
+
+@media (max-width: 768px) {
+  .offers-grid {
+    grid-template-columns: 1fr;
+  }
+}
