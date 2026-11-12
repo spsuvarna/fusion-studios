@@ -11,6 +11,13 @@ const studioValues = [
   { symbol: '03', title: 'Results that live well', copy: 'We balance the in-studio finish with realistic upkeep so your look works beautifully every day.' },
 ]
 
+const journey = [
+  { number: '01', title: 'Explore', copy: 'Browse the seasonal rituals and choose the service that fits your goal.' },
+  { number: '02', title: 'Share', copy: 'Send your service, preferred day and time through the quick booking form.' },
+  { number: '03', title: 'Confirm', copy: 'Our team checks availability and confirms your appointment on WhatsApp.' },
+  { number: '04', title: 'Arrive', copy: 'Begin with a personal consultation, then relax while our specialist takes over.' },
+]
+
 export default function ExtraBenefits({ onBookClick }) {
   return (
     <>
@@ -24,6 +31,18 @@ export default function ExtraBenefits({ onBookClick }) {
               {benefits.map(([number, title, copy]) => <div className="benefit-row" key={title}><span>{number}</span><div><h3>{title}</h3><p>{copy}</p></div></div>)}
             </div>
           </div>
+        </div>
+      </section>
+      <section className="Journey" aria-labelledby="journey-title">
+        <div className="section-shell">
+          <header className="journey-heading">
+            <div><p className="eyebrow dark"><span></span> Simple from start to finish</p><h2 id="journey-title">Your visit,<br /><em>in four easy steps.</em></h2></div>
+            <p>Discover a service, share your preference and receive a direct confirmation. No account, no advance payment and no complicated checkout.</p>
+          </header>
+          <ol className="journey-grid">
+            {journey.map((step) => <li key={step.number}><span>{step.number}</span><h3>{step.title}</h3><p>{step.copy}</p></li>)}
+          </ol>
+          <button className="button button-gold journey-button" type="button" onClick={onBookClick}>Start your booking <span>→</span></button>
         </div>
       </section>
       <section className="Reviews" id="reviews" aria-labelledby="reviews-title">

@@ -15,7 +15,15 @@ export default function Header({ onBookClick }) {
 
   useEffect(() => {
     document.body.classList.toggle('menu-open', isOpen)
-    return () => document.body.classList.remove('menu-open')
+    const closeOnEscape = (event) => event.key === 'Escape' && setIsOpen(false)
+    const closeOnDesktop = () => window.innerWidth > 980 && setIsOpen(false)
+    window.addEventListener('keydown', closeOnEscape)
+    window.addEventListener('resize', closeOnDesktop)
+    return () => {
+      document.body.classList.remove('menu-open')
+      window.removeEventListener('keydown', closeOnEscape)
+      window.removeEventListener('resize', closeOnDesktop)
+    }
   }, [isOpen])
 
   const goTo = (event, id) => {
@@ -25,7 +33,7 @@ export default function Header({ onBookClick }) {
   }
 
   return (
-    <header className={`Header ${scrolled ? 'is-scrolled' : ''}`}>
+    <header className={`Header ${scrolled ? 'is-scrolled' : ''} ${isOpen ? 'menu-is-open' : ''}`}>
       <div className="nav-shell">
         <a className="brand" href="#top" onClick={(event) => goTo(event, 'top')} aria-label="Fusion Studios home">
           <span className="brand-mark" aria-hidden="true">F</span>
