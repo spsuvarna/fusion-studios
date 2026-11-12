@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import Offers from './components/Offers'
@@ -8,18 +8,20 @@ import BookingModal from './components/BookingModal'
 import './components/App.css'
 
 export default function App() {
-  const [isBookingOpen, setBookingOpen] = useState(false)
+  const [booking, setBooking] = useState({ open: false, service: '' })
+  const openBooking = (service = '') => setBooking({ open: true, service })
+  const closeBooking = () => setBooking((current) => ({ ...current, open: false }))
 
   return (
     <div className="App">
-      <Header onBookClick={() => setBookingOpen(true)} />
+      <Header onBookClick={() => openBooking()} />
       <main>
-        <Hero onBookClick={() => setBookingOpen(true)} />
-        <Offers onBookClick={() => setBookingOpen(true)} />
-        <ExtraBenefits />
+        <Hero onBookClick={() => openBooking()} />
+        <Offers onBookClick={openBooking} />
+        <ExtraBenefits onBookClick={() => openBooking()} />
       </main>
-      <Footer />
-      {isBookingOpen && <BookingModal onClose={() => setBookingOpen(false)} />}
+      <Footer onBookClick={() => openBooking()} />
+      {booking.open && <BookingModal initialService={booking.service} onClose={closeBooking} />}
     </div>
   )
 }

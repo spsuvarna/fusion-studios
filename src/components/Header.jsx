@@ -1,51 +1,48 @@
-import React, { useState } from 'react'
-import './Header.css'
+import { useEffect, useState } from 'react'
+
+const navItems = [['Home', 'top'], ['Services', 'services'], ['Why us', 'experience'], ['Studio', 'reviews'], ['Contact', 'contact']]
 
 export default function Header({ onBookClick }) {
   const [isOpen, setIsOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
 
-  const handleNavClick = (e, targetId) => {
-    e.preventDefault()
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 24)
+    handleScroll()
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  useEffect(() => {
+    document.body.classList.toggle('menu-open', isOpen)
+    return () => document.body.classList.remove('menu-open')
+  }, [isOpen])
+
+  const goTo = (event, id) => {
+    event.preventDefault()
     setIsOpen(false)
-    const element = document.getElementById(targetId)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
-    }
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
   }
 
   return (
-    <header className="Header">
-      <div className="container nav-inner">
-        <a href="#top" className="logo" onClick={(e) => e.preventDefault()}>
-          <span className="logo-star">★</span>
-          <span className="logo-text">FUSION<span>STUDIOS</span></span>
-          <span className="logo-sub">SALON · COSMETOLOGY · TATTOO · NAIL</span>
+    <header className={`Header ${scrolled ? 'is-scrolled' : ''}`}>
+      <div className="nav-shell">
+        <a className="brand" href="#top" onClick={(event) => goTo(event, 'top')} aria-label="Fusion Studios home">
+          <span className="brand-mark" aria-hidden="true">F</span>
+          <span className="brand-copy"><strong>Fusion <em>Studios</em></strong><small>Salon · Skin · Nail · Tattoo</small></span>
         </a>
-
-        <nav className="nav-links">
-          <a href="#top" onClick={(e) => handleNavClick(e, 'top')}>Home</a>
-          <a href="#offers" onClick={(e) => handleNavClick(e, 'offers')}>Offers</a>
-          <a href="#benefits" onClick={(e) => handleNavClick(e, 'benefits')}>Benefits</a>
-          <a href="#contact" onClick={(e) => handleNavClick(e, 'contact')}>Contact</a>
+        <nav className="nav-links" aria-label="Main navigation">
+          {navItems.map(([label, id]) => <a key={id} href={`#${id}`} onClick={(event) => goTo(event, id)}>{label}</a>)}
         </nav>
-
-        <button className="nav-cta" onClick={onBookClick}>
-          <i className="fas fa-calendar-check"></i> Book Appointment
-        </button>
-
-        <button className="nav-toggle" onClick={() => setIsOpen(!isOpen)} aria-label="Toggle menu">
-          <i className={`fas ${isOpen ? 'fa-times' : 'fa-bars'}`}></i>
-        </button>
+        <button className="nav-cta" type="button" onClick={onBookClick}><span aria-hidden="true">▦</span> Book an appointment</button>
+        <button className="nav-toggle" type="button" onClick={() => setIsOpen((open) => !open)} aria-label={isOpen ? 'Close menu' : 'Open menu'} aria-expanded={isOpen} aria-controls="mobile-navigation"><span></span><span></span></button>
       </div>
-
-      {isOpen && (
-        <div className="mobile-menu-overlay" onClick={() => setIsOpen(false)}>
-          <a href="#top" onClick={(e) => handleNavClick(e, 'top')}>Home</a>
-          <a href="#offers" onClick={(e) => handleNavClick(e, 'offers')}>Offers</a>
-          <a href="#benefits" onClick={(e) => handleNavClick(e, 'benefits')}>Benefits</a>
-          <a href="#contact" onClick={(e) => handleNavClick(e, 'contact')}>Contact</a>
-        </div>
-      )}
+      <div id="mobile-navigation" className={`mobile-menu ${isOpen ? 'is-open' : ''}`} aria-hidden={!isOpen}>
+        <nav aria-label="Mobile navigation">
+          {navItems.map(([label, id], index) => <a key={id} href={`#${id}`} onClick={(event) => goTo(event, id)}><span>0{index + 1}</span>{label}</a>)}
+          <button type="button" onClick={() => { setIsOpen(false); onBookClick() }}>Book your visit</button>
+        </nav>
+      </div>
     </header>
   )
 }

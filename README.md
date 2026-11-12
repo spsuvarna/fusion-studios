@@ -1,22 +1,35 @@
-# Fusion Studios Pre-Monsoon Makeover Festival
+# Fusion Studios
 
-A beautiful React website showcasing the Pre-Monsoon Makeover Festival offerings from Fusion Studios in Marol, Mumbai. Features salon services, cosmetology treatments, tattoo and nail services with special monsoon packages.
+A polished, responsive one-page website for Fusion Studios in Marol, Mumbai. The experience presents the studio’s hair, skin, nail and tattoo services and routes appointment requests to WhatsApp.
 
-## Features
+## Highlights
 
-- Luxury gold and black theme matching the promotional poster
-- Responsive design for all device sizes
-- Pre-Monsoon festival packages with pricing details
-- Extra benefits section highlighting complimentary services
-- Booking modal for appointment scheduling
-- Interactive elements with hover animations
+- Original cinematic salon hero artwork
+- Responsive desktop, tablet and mobile layouts
+- Seasonal service packages with transparent pricing
+- Service-aware appointment modal with validation
+- WhatsApp booking handoff
+- Accessible navigation, keyboard dismissal and reduced-motion support
+- GitHub Pages deployment workflow
 
-## Live Demo
+## Local development
 
-[🔗 Live Website](https://spsuvarna.github.io/fusion-studios/)
+```bash
+npm install
+npm run dev
+```
+
+Production build:
+
+```bash
+npm run build
+```
+
+## Live site
+
+[spsuvarna.github.io/fusion-studios](https://spsuvarna.github.io/fusion-studios/)
 
 ## Contact
 
-For inquiries, please contact Fusion Studios at:
-📞 +91 98337 69666
-📍 Marol, Mumbai (10 minutes walking distance from Metro Station)
+- Phone / WhatsApp: +91 98337 69666
+- Location: Marol, Andheri East, Mumbai
