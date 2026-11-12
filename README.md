@@ -18,6 +18,8 @@ The application is a mobile-first service discovery and appointment-request webs
 - Original cinematic salon hero artwork
 - Responsive desktop, tablet and mobile layouts
 - Seasonal service packages with transparent pricing
+- Filterable real-photo gallery with an accessible lightbox
+- Public customer ratings and exact Google Maps directions
 - Service-aware appointment modal with validation
 - WhatsApp booking handoff
 - Accessible navigation, keyboard dismissal and reduced-motion support
@@ -44,3 +46,5 @@ npm run build
 
 - Phone / WhatsApp: +91 98337 69666
 - Location: Marol, Andheri East, Mumbai
+- Address: 10 A1, Mahavir Nagar, Bhawani Nagar Road, near SevenHills Hospital, Mumbai 400059
+- Hours: Open daily, 9:00 AM–10:00 PM

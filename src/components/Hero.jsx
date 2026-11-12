@@ -7,11 +7,15 @@ export default function Hero({ onBookClick }) {
       <div className="hero-shade" aria-hidden="true"></div>
       <div className="hero-rail" aria-hidden="true"><span>Beauty</span><i></i><span>Confidence</span><i></i><span>Craft</span></div>
       <div className="hero-content">
-        <p className="eyebrow"><span></span> Pre-monsoon edit · Marol</p>
-        <h1 id="hero-title">Your best look,<br /><em>beautifully</em> made.</h1>
-        <p className="hero-intro">Hair, skin, nails and tattoo artistry—thoughtfully brought together by specialists who listen first.</p>
+        <p className="eyebrow"><span></span> Hair · Skin · Nails · Tattoo</p>
+        <h1 id="hero-title">Look your best.<br /><em>Feel your best.</em></h1>
+        <p className="hero-intro">Hair, skin, nail and tattoo services in Marol, Mumbai—delivered by specialists who listen first.</p>
+        <div className="hero-details" aria-label="Location and opening hours">
+          <span><i aria-hidden="true">⌖</i> Andheri East, Mumbai</span>
+          <span><i aria-hidden="true">◷</i> Open daily · 9:00 AM–10:00 PM</span>
+        </div>
         <div className="hero-actions">
-          <button className="button button-gold" type="button" onClick={onBookClick}>Book your experience <span>→</span></button>
+          <button className="button button-gold" type="button" onClick={onBookClick}>Book an appointment <span>→</span></button>
           <a className="text-link" href="#services">Explore services <span>↓</span></a>
         </div>
         <div className="hero-proof" aria-label="Studio highlights">

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 
-const services = ['Consultation / help me choose', 'The Signature Reset — ₹999', 'Monsoon Glow Facial — ₹1,499', 'Hands & Feet Edit — ₹1,999', 'Colour + Keratin — ₹3,499', 'Cysteine Hair Botox — ₹3,999', 'Polish & Rejuvenate — ₹1,499']
+const services = ['Consultation / help me choose', 'The Signature Reset — ₹999', 'Monsoon Glow Facial — ₹1,499', 'Hands & Feet Edit — ₹1,999', 'Colour + Keratin — ₹3,499', 'Cysteine Hair Botox — ₹3,999', 'Polish & Rejuvenate — ₹1,499', 'Tattoo Consultation — Custom quote']
 
 export default function BookingModal({ initialService = '', onClose }) {
   const [formData, setFormData] = useState({ name: '', mobile: '', date: '', time: '', service: initialService })
@@ -41,16 +41,17 @@ export default function BookingModal({ initialService = '', onClose }) {
         <button className="modal-close" type="button" onClick={onClose} aria-label="Close booking form">×</button>
         <div className="modal-aside"><div><span>Fusion Studios</span><p>Beauty begins the moment you feel understood.</p></div><small>Marol · Mumbai</small></div>
         <div className="modal-content">
-          <p className="eyebrow dark"><span></span> Your visit</p><h2 id="booking-title">Reserve your<br /><em>studio time.</em></h2><p className="modal-lead">Share your preference and our team will confirm the appointment on WhatsApp.</p>
+          <p className="eyebrow dark"><span></span> Your visit</p><h2 id="booking-title">Request an<br /><em>appointment.</em></h2><p className="modal-lead">Share your details and preferred time. Our team will confirm availability with you on WhatsApp.</p>
+          {formData.service && <div className="selected-service"><small>Selected service</small><strong>{formData.service}</strong></div>}
           <form onSubmit={submit} noValidate>
-            <label>Full name<input ref={nameRef} name="name" value={formData.name} onChange={update} placeholder="Your name" aria-invalid={!!errors.name} />{errors.name && <small className="error">{errors.name}</small>}</label>
-            <label>Mobile number<input name="mobile" type="tel" value={formData.mobile} onChange={update} placeholder="+91 98765 43210" aria-invalid={!!errors.mobile} />{errors.mobile && <small className="error">{errors.mobile}</small>}</label>
-            <label className="full">Service<select name="service" value={formData.service} onChange={update} aria-invalid={!!errors.service}><option value="">Choose a service</option>{services.map((service) => <option key={service}>{service}</option>)}</select>{errors.service && <small className="error">{errors.service}</small>}</label>
+            <label>Full name <b>*</b><input ref={nameRef} name="name" value={formData.name} onChange={update} placeholder="Your name" aria-invalid={!!errors.name} required />{errors.name && <small className="error">{errors.name}</small>}</label>
+            <label>Mobile number <b>*</b><input name="mobile" type="tel" value={formData.mobile} onChange={update} placeholder="+91 98765 43210" aria-invalid={!!errors.mobile} required />{errors.mobile && <small className="error">{errors.mobile}</small>}</label>
+            <label className="full">Service <b>*</b><select name="service" value={formData.service} onChange={update} aria-invalid={!!errors.service} required><option value="">Choose a service</option>{services.map((service) => <option key={service}>{service}</option>)}</select>{errors.service && <small className="error">{errors.service}</small>}</label>
             <label>Preferred date<input name="date" type="date" min={minDate} value={formData.date} onChange={update} aria-invalid={!!errors.date} />{errors.date && <small className="error">{errors.date}</small>}</label>
             <label>Preferred time<select name="time" value={formData.time} onChange={update}><option value="">Flexible</option><option>10 AM – 1 PM</option><option>1 PM – 5 PM</option><option>5 PM – 9 PM</option></select></label>
             <button className="button button-gold full" type="submit">Continue on WhatsApp <span>→</span></button>
           </form>
-          <p className="modal-note">No payment required · We’ll confirm availability first</p>
+          <p className="modal-note">Your appointment is confirmed after our team responds.</p>
         </div>
       </section>
     </div>

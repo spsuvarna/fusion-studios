@@ -5,10 +5,10 @@ const benefits = [
   ['04', 'Easy aftercare', 'Simple guidance that helps your result look better for longer.'],
 ]
 
-const studioValues = [
-  { symbol: '01', title: 'Your look, not a template', copy: 'We use references as a starting point, then adapt every detail to your features, routine and comfort.' },
-  { symbol: '02', title: 'Clarity before commitment', copy: 'You receive a clear service recommendation, expected outcome and price before we begin.' },
-  { symbol: '03', title: 'Results that live well', copy: 'We balance the in-studio finish with realistic upkeep so your look works beautifully every day.' },
+const clientReviews = [
+  { name: 'Himanshu V.', rating: '★★★★☆', score: '4 out of 5 stars', quote: '“Great haircuts, fantastic services, love the atmosphere.”', source: 'Public customer review' },
+  { name: 'Roshan M.', rating: '★★★★★', score: '5 out of 5 stars', quote: '5-star outlet rating', source: 'Verified public listing' },
+  { name: 'Priyanka P.', rating: '★★★★★', score: '5 out of 5 stars', quote: '5-star outlet rating', source: 'Verified public listing' },
 ]
 
 const journey = [
@@ -47,11 +47,12 @@ export default function ExtraBenefits({ onBookClick }) {
       </section>
       <section className="Reviews" id="reviews" aria-labelledby="reviews-title">
         <div className="section-shell">
-          <header className="reviews-heading"><p className="eyebrow dark"><span></span> Our approach</p><h2 id="reviews-title">More considered.<br /><em>More completely you.</em></h2></header>
+          <header className="reviews-heading"><p className="eyebrow dark"><span></span> What our clients say</p><h2 id="reviews-title">Trusted locally.<br /><em>Rated beautifully.</em></h2><p className="reviews-summary"><strong>4.9</strong> from public customer ratings for the JB Nagar studio.</p></header>
           <div className="review-grid">
-            {studioValues.map((value, index) => <article className={index === 1 ? 'offset' : ''} key={value.title}><div className="value-number">{value.symbol}</div><h3>{value.title}</h3><p>{value.copy}</p><span className="value-mark" aria-hidden="true">✦</span></article>)}
+            {clientReviews.map((review, index) => <article className={index === 1 ? 'offset' : ''} key={review.name}><div className="review-stars" aria-label={review.score}>{review.rating}</div><blockquote>{review.quote}</blockquote><footer><span>{review.name.charAt(0)}</span><div><strong>{review.name}</strong><small>{review.source}</small></div></footer></article>)}
           </div>
-          <div className="reviews-cta"><span>Ready for your own before & after?</span><button type="button" onClick={onBookClick}>Start with a consultation →</button></div>
+          <div className="reviews-links"><a href="https://www.google.com/maps/search/?api=1&query=19.1073983%2C72.8673575" target="_blank" rel="noreferrer">Open Google reviews ↗</a><a href="https://magicpin.in/Mumbai/Jb-Nagar/Beauty/Fusion-Studios/store/64547" target="_blank" rel="noreferrer">View verified listing ↗</a></div>
+          <div className="reviews-cta"><span>Ready to plan your visit?</span><button type="button" onClick={onBookClick}>Book an appointment →</button></div>
         </div>
       </section>
     </>

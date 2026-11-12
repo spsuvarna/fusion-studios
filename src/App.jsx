@@ -2,6 +2,7 @@ import { useState } from 'react'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import Offers from './components/Offers'
+import Gallery from './components/Gallery'
 import ExtraBenefits from './components/ExtraBenefits'
 import Footer from './components/Footer'
 import BookingModal from './components/BookingModal'
@@ -18,6 +19,7 @@ export default function App() {
       <main>
         <Hero onBookClick={() => openBooking()} />
         <Offers onBookClick={openBooking} />
+        <Gallery />
         <ExtraBenefits onBookClick={() => openBooking()} />
       </main>
       <Footer onBookClick={() => openBooking()} />

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-const navItems = [['Home', 'top'], ['Services', 'services'], ['Why us', 'experience'], ['Studio', 'reviews'], ['Contact', 'contact']]
+const navItems = [['Home', 'top'], ['Services', 'services'], ['Our work', 'work'], ['Reviews', 'reviews'], ['Contact', 'contact']]
 
 export default function Header({ onBookClick }) {
   const [isOpen, setIsOpen] = useState(false)
@@ -54,7 +54,7 @@ export default function Header({ onBookClick }) {
         <nav className="nav-links" aria-label="Main navigation">
           {navItems.map(([label, id]) => <a key={id} href={`#${id}`} onClick={(event) => goTo(event, id)}>{label}</a>)}
         </nav>
-        <button className="nav-cta" type="button" onClick={onBookClick}><span aria-hidden="true">▦</span> Book an appointment</button>
+        <button className="nav-cta" type="button" onClick={onBookClick}><span aria-hidden="true">▦</span> Book appointment</button>
         <button className="nav-toggle" type="button" onClick={() => setIsOpen((open) => !open)} aria-label={isOpen ? 'Close menu' : 'Open menu'} aria-expanded={isOpen} aria-controls="mobile-navigation"><span></span><span></span></button>
       </div>
       <div id="mobile-navigation" className={`mobile-menu ${isOpen ? 'is-open' : ''}`} aria-hidden={!isOpen}>
