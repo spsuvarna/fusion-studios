@@ -28,8 +28,20 @@ export default function Header({ onBookClick }) {
 
   const goTo = (event, id) => {
     event.preventDefault()
-    setIsOpen(false)
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+    const navigate = (behavior = 'smooth') => {
+      const target = document.getElementById(id)
+      if (!target) return
+      target.scrollIntoView({ behavior, block: 'start' })
+    }
+
+    const isMobileNavigation = window.matchMedia('(max-width: 980px)').matches
+    if (isMobileNavigation) {
+      setIsOpen(false)
+      document.body.classList.remove('menu-open')
+      window.setTimeout(() => navigate('instant'), 280)
+    } else {
+      navigate()
+    }
   }
 
   return (
